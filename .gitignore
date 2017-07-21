@@ -39,7 +39,7 @@ Temporary Items
 target/**/**
 
 ### Predix Apps ###
-Predix-HelloWorld-WebApp/**/**
+Predix-HelloWorld-WebApp
 
 cleanup.sc
 
