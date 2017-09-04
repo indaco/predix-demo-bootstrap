@@ -139,6 +139,7 @@ object UAAUtils {
         .postData(createClientBodyAsJson)
         .asString
       val parsedResBody = upickle.json.read(res.body)
+      //println(parsedResBody.toString)
       res.isSuccess match {
         case true => {
           logger.showAndAppendToLogFile("info", " ** Client created")
@@ -148,7 +149,7 @@ object UAAUtils {
           )
         }
         case false => {
-          logger.showAndAppendToLogFile("error", s""" ** ERROR Creating Group: HTTP error code("${res.code}"), message ${parsedResBody("message")}""")
+          logger.showAndAppendToLogFile("error", s""" ** ERROR Creating Client: error:(${parsedResBody("error")}), message: ${parsedResBody("error_description")}""")
           Map(
             "errorCode" -> res.code.toString,
             "errorMessage" -> parsedResBody("message").toString.replace("\"", "")
@@ -172,8 +173,9 @@ object UAAUtils {
       val autoApprove = Array("openid")
       val scopes = _generateClientScopeList(tsDetails, assetDetails)
       val authorities = _generateClientAuthoritiesList(tsDetails, assetDetails)
+      val redirectUri = Array("http://test1.com")
 
-      val createClientBody = (UAAClient.apply _).tupled(clientId, clientSecret, authorizedGrantTypes, allowProviders, accessTokenValidity, refreshTokenValidity, autoApprove, scopes, authorities)
+      val createClientBody = (UAAClient.apply _).tupled(clientId, clientSecret, authorizedGrantTypes, allowProviders, accessTokenValidity, refreshTokenValidity, autoApprove, scopes, authorities, redirectUri)
       return createClientBody.toJsonString
   }
 

@@ -136,7 +136,8 @@ case class UAAClient(
   refreshTokenValidity: Int,
   autoApprove: Array[String],
   scopes: Array[String],
-  authorities: Array[String]
+  authorities: Array[String],
+  redirectUri: Array[String]
   ) {
 
   def toJsonString: String = {
@@ -145,6 +146,7 @@ case class UAAClient(
     val autoApproveJson = upickle.default.write(autoApprove)
     val scopesJson = upickle.default.write(scopes)
     val authoritiesJson = upickle.default.write(authorities)
-    s""" {"client_id": "$clientId", "client_secret": "$clientSecret", "name": "$clientId", "authorized_grant_types": $authorizedGrantTypesJson, "allowedproviders": $allowProvidersJson ,"authorities": $authoritiesJson, "scope": $scopesJson, "autoapprove": $autoApproveJson, "access_token_validity": $accessTokenValidity, "refresh_token_validity": $refreshTokenValidity} """
+    val redirectUriJson = upickle.default.write(redirectUri)
+    s""" {"client_id": "$clientId", "client_secret": "$clientSecret", "name": "$clientId", "authorized_grant_types": $authorizedGrantTypesJson, "allowedproviders": $allowProvidersJson ,"authorities": $authoritiesJson, "scope": $scopesJson, "redirect_uri": $redirectUriJson,"autoapprove": $autoApproveJson, "access_token_validity": $accessTokenValidity, "refresh_token_validity": $refreshTokenValidity} """
   }
 }
