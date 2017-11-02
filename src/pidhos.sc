@@ -80,10 +80,10 @@ case class PredixSQLDetails(
   label: String,
   name: String,
   plan: String,
-  host: String,
+  hostname: String,
   port: String,
   database: String,
-  instanceId: String,
+  uuid: String,
   username: String,
   password: String
 ) {
@@ -92,10 +92,10 @@ case class PredixSQLDetails(
     - label: $label
     - name: $name
     - plan: $plan
-    - host: $host
+    - hostname: $hostname
     - port: $port
     - database: $database
-    - instanceId: $instanceId
+    - uuid: $uuid
     - username: $username
     - password: $password
     """

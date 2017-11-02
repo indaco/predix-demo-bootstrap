@@ -85,7 +85,7 @@ object PredixUtils {
       createService(sqlInstanceName, createSQLCommand)
   } // End of createSQLService
 
-  
+
   // cfBind
   def cfBind(appName: String, serviceName: String): Option[String] = {
     val statementResult: Option[CommandResult] = NetUtils.execCommand(s"cf bs $appName $serviceName")
@@ -182,10 +182,10 @@ object PredixUtils {
     jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("label").toString.replace("\"", ""),
     jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("name").toString.replace("\"", ""),
     jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("plan").toString.replace("\"", ""),
-    jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("credentials")("host").toString.replace("\"", ""),
+    jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("credentials")("hostname").toString.replace("\"", ""),
     jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("credentials")("port").toString.replace("\"", ""),
     jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("credentials")("database").toString.replace("\"", ""),
-    jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("credentials")("instance_id").toString.replace("\"", ""),
+    jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("credentials")("uuid").toString.replace("\"", ""),
     jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("credentials")("username").toString.replace("\"", ""),
     jsonContent("VCAP_SERVICES")(SQL_SERVICE_NAME)(0)("credentials")("password").toString.replace("\"", "")
   )
