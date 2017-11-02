@@ -124,7 +124,7 @@ def main() = {
   /***********  Asset Service ***********/
 
   // Create Asset Service
-  appLogger.showAndAppendToLogFile("info", s"\n * Create service if it does not exist: $TIMESERIES_SERVICE_NAME")
+  appLogger.showAndAppendToLogFile("info", s"\n * Create service if it does not exist: $ASSET_SERVICE_NAME")
   PredixUtils.createAssetService(
     ASSET_SERVICE_NAME,
     ASSET_SERVICE_PLAN,
