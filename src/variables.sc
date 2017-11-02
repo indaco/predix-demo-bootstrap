@@ -54,10 +54,10 @@ val ASSET_INSTANCE_NAME = INSTANCE_PREPENDER + "-asset"
 /***********  PostgreSQL Configurations ***********/
 
 // The name of the PostgreSQL service you are binding to - default already set
-val SQL_SERVICE_NAME = "postgres"
+val SQL_SERVICE_NAME = "postgres-2.0"
 
 // Name of the PostgreSQL plan (eg: Free) - default already set
-val SQL_SERVICE_PLAN = " shared-nr"
+val SQL_SERVICE_PLAN = "dedicated-10.1"
 
 // Name of your PostgreSQL instance - default already set
 val SQL_INSTANCE_NAME = INSTANCE_PREPENDER + "-sql"
